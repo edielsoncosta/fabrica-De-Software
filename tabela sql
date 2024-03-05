@@ -1,0 +1,58 @@
+/* Lógico_1: */
+
+CREATE TABLE Aluno (
+    Matricula FLOAT PRIMARY KEY,
+    fk_email_email_PK CHAR,
+    rua CHAR,
+    bairro CHAR,
+    Cidade CHAR
+);
+
+CREATE TABLE Professor (
+    ID_Professor INT PRIMARY KEY,
+    Nome CHAR
+);
+
+CREATE TABLE Disciplina (
+);
+
+CREATE TABLE Turma (
+    fk_Professor_ID_Professor INT
+);
+
+CREATE TABLE Coordenacao (
+);
+
+CREATE TABLE email (
+    email_PK CHAR NOT NULL PRIMARY KEY,
+    email CHAR,
+    email CHAR
+);
+
+CREATE TABLE Matriculado (
+    fk_Aluno_Matricula FLOAT
+);
+
+CREATE TABLE possui (
+    fk_Professor_ID_Professor INT
+);
+ 
+ALTER TABLE Aluno ADD CONSTRAINT FK_Aluno_2
+    FOREIGN KEY (fk_email_email_PK)
+    REFERENCES email (email_PK)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Turma ADD CONSTRAINT FK_Turma_1
+    FOREIGN KEY (fk_Professor_ID_Professor)
+    REFERENCES Professor (ID_Professor)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Matriculado ADD CONSTRAINT FK_Matriculado_1
+    FOREIGN KEY (fk_Aluno_Matricula)
+    REFERENCES Aluno (Matricula)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE possui ADD CONSTRAINT FK_possui_1
+    FOREIGN KEY (fk_Professor_ID_Professor)
+    REFERENCES Professor (ID_Professor)
+    ON DELETE SET NULL;
